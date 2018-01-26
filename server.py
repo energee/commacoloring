@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 from flask import Flask, request, send_from_directory, Response
 import random, os, base64, json
-
+## logging
+import sys
+import logging
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+## end logging
 DATA_PATH = "data/driving/"
 from tools.db import conn
 
@@ -56,4 +61,3 @@ def favicon():
 
 if __name__ == "__main__":
   app.run(debug=True)
-
