@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 from flask import Flask, request, send_from_directory, Response
 import random, os, base64, json
-## logging
 import sys
 import logging
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
-## end logging
 DATA_PATH = "data/driving/"
 from tools.db import conn
 
 # set the project root directory as the static folder, you can set others.
 app = Flask(__name__, static_url_path='')
+
+## logging
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+## end logging
 
 @app.route('/js/<path:path>')
 def send_js(path):
